@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @firm.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @firm.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @firm.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @firm.address %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @firm.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_firm_path(@firm) %> |
+<%= link_to 'Back', firms_path %>
