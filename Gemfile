@@ -18,6 +18,8 @@ gem 'foundation-icons-sass-rails'
 gem 'simple_form'
 gem 'kaminari'
 gem 'devise'
+gem 'omniauth', '~> 1.0.0'
+gem 'omniauth-vkontakte', '~> 1.3.3'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'capybara',      group: :test

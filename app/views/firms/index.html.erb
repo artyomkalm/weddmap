@@ -1,4 +1,16 @@
 <h1>Listing firms</h1>
+<div style='width: 600px;'>
+  <div id="map" style='width: 600px; height: 400px;'></div>
+    <script>
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(12);
+    });
+    </script>
+</div>
 
 <table>
   <thead>

@@ -4,8 +4,11 @@ class FirmsController < ApplicationController
   respond_to :html
 
   def index
-    @firms = Firm.all
-    respond_with(@firms)
+    @firms = Firm.all    
+    @hash = Gmaps4rails.build_markers(@firms) do |firm, marker|
+      marker.lat firm.lat
+      marker.lng firm.lng      
+    end    
   end
 
   def show
