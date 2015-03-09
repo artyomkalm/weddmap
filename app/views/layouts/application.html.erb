@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "weddmap" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -21,7 +21,7 @@
           <li class="name">
             <h1>
               <a href="#">
-                Top Bar Title
+                WeddMap
               </a>
             </h1>
           </li>
@@ -31,6 +31,9 @@
         <section class="top-bar-section">
            
           <ul class="right">
+             <li class="divider"></li>
+            <li><%= link_to 'Главная', root_path %></li>
+            <li class="divider"></li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Main Item 1</a>
@@ -71,6 +74,14 @@
                 <li><a href="#">See all →</a></li>
               </ul>
             </li>
+            <li class="divider"></li>
+            <% if user_signed_in? %>
+            <li>Здравствуйте, <%= current_user.email %></li>
+              <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to 'Войти', new_user_session_path %></li>
+              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+            <% end %>
           </ul>
         </section>
       </nav>
@@ -114,6 +125,8 @@
         <div class="large-9 columns">
           <div class="panel">
             <div class="row">
+	      <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
               <%= yield %>
             </div>
           </div>
